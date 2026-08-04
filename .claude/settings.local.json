@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 run.py \"把地上的球捡起来放桌上\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(python3 run.py \"把球捡起来\" --retries 0)",
+      "Bash(python3 run.py \"帮我叠衣服\")",
+      "Bash(python3 run.py --list-skills)",
+      "Bash(python3 run.py \"把地上的球捡起来放桌上\" --planner llm)",
+      "Bash(python3 run.py \"去垃圾桶那边\" --planner llm)",
+      "Bash(python3 run.py \"帮我叠衣服\" --planner llm)",
+      "Bash(env -u LLM_API_KEY -u LLM_BASE_URL python3 run.py \"把球捡起来\" --planner llm)",
+      "Bash(python3 run.py \"把地上的球捡起来放桌上\" --planner llm --dry-run)",
+      "Bash(python3 *)",
+      "Bash(chmod +x skills/*/main)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(env)"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "20 条基准指令。expect=solvable 时 expected_skills 是正确拆解应当产出的技能序列（只比对技能名顺序，不比对参数字面量——validate_plan 本来就不做语义校验，参数只要非空就算合法，这是当前系统的真实能力边界，不在这份基准里硬凑语义正确性）。expect=unsolvable 时正确行为是输出空计划 []。",
+  "cases": [
+    {"id": "c01", "text": "把地上的球捡起来放桌上", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c02", "text": "把桌上的杯子拿起来放到垃圾桶里", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c03", "text": "把地上的瓶子捡起来放进箱子里", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c04", "text": "把那个玩具捡起来放到沙发上", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c05", "text": "把地上的苹果抓起来放在盘子里", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c06", "text": "把球捡起来", "expect": "solvable", "expected_skills": ["move_to", "pick"]},
+    {"id": "c07", "text": "把地上的杯子拿起来", "expect": "solvable", "expected_skills": ["move_to", "pick"]},
+    {"id": "c08", "text": "去垃圾桶那边", "expect": "solvable", "expected_skills": ["move_to"]},
+    {"id": "c09", "text": "走到桌子旁边", "expect": "solvable", "expected_skills": ["move_to"]},
+    {"id": "c10", "text": "移动到门口", "expect": "solvable", "expected_skills": ["move_to"]},
+    {"id": "c11", "text": "帮我叠衣服", "expect": "unsolvable"},
+    {"id": "c12", "text": "给我讲个笑话", "expect": "unsolvable"},
+    {"id": "c13", "text": "打扫一下房间", "expect": "unsolvable"},
+    {"id": "c14", "text": "把灯打开", "expect": "unsolvable"},
+    {"id": "c15", "text": "球在地上，帮我捡起来放到桌子上", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c16", "text": "先移动到球旁边，再把它捡起来，然后拿到桌子那儿放下", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c17", "text": "麻烦把地上那颗球捞起来放桌子上", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c18", "text": "桌子上的杯子要拿去洗手台放着", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c19", "text": "把地上的书本捡起来，放到书架上", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]},
+    {"id": "c20", "text": "能不能把垃圾捡起来扔到垃圾桶", "expect": "solvable", "expected_skills": ["move_to", "pick", "move_to", "place"]}
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "_comment": "技能注册表。这是你这个阶段最重要的交付物。一个文件同时喂给两边：喂给 planner 当工具定义（大模型据此决定调什么），喂给 executor 当派发表（照着它找脚本、校验参数）。以后曹志伟/蒋丰泽写真技能，也照这份表来。",
+
+  "skills": [
+    {
+      "name": "move_to",
+      "category": "mobile",
+      "description": "让机器人移动到某个目标物体或位置附近。",
+      "params": {
+        "target": {
+          "type": "string",
+          "required": true,
+          "description": "目标名称，例如 '球' '桌子' '垃圾桶'"
+        }
+      },
+      "returns": {
+        "success": "bool，技能自己认为成没成",
+        "detail": "string，人话说明",
+        "evidence": "object，判定证据。mock 阶段恒为 {}，接真视觉后放检测框/位姿"
+      },
+      "owner": "蒋丰泽（底盘）",
+      "impl": "mock"
+    },
+    {
+      "name": "pick",
+      "category": "manipulation",
+      "description": "用机械臂抓起指定物体。调用前机器人应已在物体附近。",
+      "params": {
+        "object": {
+          "type": "string",
+          "required": true,
+          "description": "要抓的物体名称"
+        }
+      },
+      "returns": {
+        "success": "bool",
+        "detail": "string",
+        "evidence": "object"
+      },
+      "owner": "曹志伟（VLA / SmolVLA）",
+      "impl": "mock"
+    },
+    {
+      "name": "place",
+      "category": "manipulation",
+      "description": "把当前夹持的物体放到指定位置。调用前手上应已有物体。",
+      "params": {
+        "target": {
+          "type": "string",
+          "required": true,
+          "description": "放置目标，例如 '桌面' '垃圾桶'"
+        }
+      },
+      "returns": {
+        "success": "bool",
+        "detail": "string",
+        "evidence": "object"
+      },
+      "owner": "曹志伟（VLA / SmolVLA）",
+      "impl": "mock"
+    }
+  ]
+}

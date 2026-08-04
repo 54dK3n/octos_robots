@@ -1,0 +1,260 @@
+{
+  "runs": [
+    {
+      "mode": "mock",
+      "total": 20,
+      "raw_score": 16,
+      "final_score": 16,
+      "repaired_count": 0,
+      "flipped_ids": [],
+      "results": [
+        {
+          "id": "c01",
+          "text": "把地上的球捡起来放桌上",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c02",
+          "text": "把桌上的杯子拿起来放到垃圾桶里",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c03",
+          "text": "把地上的瓶子捡起来放进箱子里",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c04",
+          "text": "把那个玩具捡起来放到沙发上",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c05",
+          "text": "把地上的苹果抓起来放在盘子里",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c06",
+          "text": "把球捡起来",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c07",
+          "text": "把地上的杯子拿起来",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c08",
+          "text": "去垃圾桶那边",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c09",
+          "text": "走到桌子旁边",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c10",
+          "text": "移动到门口",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c11",
+          "text": "帮我叠衣服",
+          "expect": "unsolvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c12",
+          "text": "给我讲个笑话",
+          "expect": "unsolvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c13",
+          "text": "打扫一下房间",
+          "expect": "unsolvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c14",
+          "text": "把灯打开",
+          "expect": "unsolvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c15",
+          "text": "球在地上，帮我捡起来放到桌子上",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": false,
+          "final_ok": false,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c16",
+          "text": "先移动到球旁边，再把它捡起来，然后拿到桌子那儿放下",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c17",
+          "text": "麻烦把地上那颗球捞起来放桌子上",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": false,
+          "final_ok": false,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c18",
+          "text": "桌子上的杯子要拿去洗手台放着",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": false,
+          "final_ok": false,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c19",
+          "text": "把地上的书本捡起来，放到书架上",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": true,
+          "final_ok": true,
+          "flipped_by_repair": false,
+          "error": null
+        },
+        {
+          "id": "c20",
+          "text": "能不能把垃圾捡起来扔到垃圾桶",
+          "expect": "solvable",
+          "repaired": false,
+          "raw_ok": false,
+          "final_ok": false,
+          "flipped_by_repair": false,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "validator": {
+    "caught": 5,
+    "total": 5,
+    "detail": [
+      {
+        "id": "v01",
+        "desc": "技能名编造",
+        "caught": true,
+        "problems": [
+          "第 1 步用了不存在的技能 goto"
+        ]
+      },
+      {
+        "id": "v02",
+        "desc": "缺必填参数 target",
+        "caught": true,
+        "problems": [
+          "第 1 步 place 缺少必填参数 target"
+        ]
+      },
+      {
+        "id": "v03",
+        "desc": "必填参数为空字符串",
+        "caught": true,
+        "problems": [
+          "第 1 步 pick 缺少必填参数 object"
+        ]
+      },
+      {
+        "id": "v04",
+        "desc": "步骤缺 skill 字段",
+        "caught": true,
+        "problems": [
+          "第 1 步格式不对"
+        ]
+      },
+      {
+        "id": "v05",
+        "desc": "计划根本不是数组",
+        "caught": true,
+        "problems": [
+          "计划不是数组"
+        ]
+      }
+    ]
+  }
+}

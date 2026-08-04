@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+"""假的抓取技能。
+
+故意设计成"第一次抓失败，第二次成功"，
+这样你能亲眼看到 executor 的重试逻辑真的在工作。
+attempt 是 executor 传进来的第几次尝试（从 1 开始）。
+
+以后曹志伟的 SmolVLA 接进来，就是把这个文件换掉。
+"""
+import json
+import sys
+
+
+def main() -> int:
+    payload = json.load(sys.stdin)
+    obj = payload.get("object")
+    attempt = payload.get("attempt", 1)
+
+    if not obj:
+        print(json.dumps({
+            "success": False,
+            "detail": "缺少参数 object",
+            "evidence": {},
+        }, ensure_ascii=False))
+        return 0
+
+    # 演示用：第一次故意失败
+    if attempt == 1:
+        print(json.dumps({
+            "success": False,
+            "detail": f"抓 {obj} 失败：夹爪滑脱",
+            "evidence": {},
+        }, ensure_ascii=False))
+        return 0
+
+    print(json.dumps({
+        "success": True,
+        "detail": f"已抓起 {obj}（第 {attempt} 次尝试）",
+        "evidence": {},
+    }, ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

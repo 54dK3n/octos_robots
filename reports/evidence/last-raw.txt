@@ -1,0 +1,1 @@
+[{"skill": "move_to", "args": {"target": "球"}}, {"skill": "pick", "args": {"object": "球"}}, {"skill": "move_to", "args": {"target": "桌"}}, {"skill": "place", "args": {"target": "桌"}}]
