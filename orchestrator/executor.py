@@ -15,11 +15,19 @@ SKILLS_DIR = Path(__file__).resolve().parent.parent / "skills"
 
 
 class Executor:
-    def __init__(self, registry: dict, max_retries: int = 1, verbose: bool = True):
+    def __init__(self, registry: dict, max_retries: int = 1, verbose: bool = True,
+                 *, decision_provider=None, skill_runner=None, judge_callback=None):
         self.registry = {s["name"]: s for s in registry["skills"]}
         self.max_retries = max_retries
         self.verbose = verbose
         self.log = []          # 结构化 attempt 日志，用来做基准和复盘
+        # A live robot can keep its sensor state and skill implementations in
+        # one process. The original script/plan interface remains the default.
+        if (skill_runner is None) != (judge_callback is None):
+            raise ValueError("skill_runner and judge_callback must be supplied together")
+        self.decision_provider = decision_provider
+        self.skill_runner = skill_runner
+        self.judge_callback = judge_callback
 
     def _say(self, message: str) -> None:
         if self.verbose:
@@ -42,6 +50,8 @@ class Executor:
 
     def _execute(self, name: str, args: dict, attempt: int) -> dict:
         """EXECUTE：真去调那个技能脚本。"""
+        if self.skill_runner is not None:
+            return self.skill_runner(name, args, attempt)
         entry = SKILLS_DIR / name / "main"
         payload = dict(args)
         payload["attempt"] = attempt   # 让技能知道这是第几次尝试
@@ -88,9 +98,10 @@ class Executor:
             self._say(f"  EXECUTE  第 {attempt} 次尝试")
             result = self._execute(name, args, attempt)
 
-            verdict = judge_module.judge(step, result)
+            verdict = (self.judge_callback or judge_module.judge)(step, result)
             self._say(f"  JUDGE    success={verdict['success']}  {verdict['detail']}")
-            self.log.append({"step": index, "attempt": attempt, "verdict": verdict})
+            self.log.append({"step": index, "skill": name, "args": dict(args),
+                             "attempt": attempt, "verdict": verdict})
 
             if verdict["success"]:
                 return verdict
@@ -100,6 +111,17 @@ class Executor:
 
         self._say(f"  REPORT   第 {index} 步放弃")
         return verdict
+
+    def run_next(self, index: int, state: dict) -> dict:
+        """Ask the injected provider for exactly one step, then dispatch it.
+
+        The caller owns observation and the task loop. A failure is returned
+        to that loop; this method never makes another decision implicitly.
+        """
+        if self.decision_provider is None:
+            raise ValueError("run_next requires a decision_provider")
+        step = self.decision_provider(state)
+        return {"step": step, "verdict": self.run_step(index, step)}
 
     def run(self, plan: list) -> dict:
         """跑完整个计划。任何一步最终失败就整体中止。"""
